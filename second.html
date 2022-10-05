@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트</title>
+</head>
+<body>
+
+    <!--
+        1) input을 받아서
+        2) name , value를 쌍으로 하여
+        3) action으로 보낸다.
+    -->
+
+    <form id="form" action="gogo">
+    <input type="password" name="password" id="password">
+    <input type="password" name="password_confirmation" id="password_confirmation">
+    <button type="sumbit">제출</button>
+</form>
+<script>
+    const form = document.querySelector('#form') //중요!!
+    form.addEventListener('submit', function(){
+        event.preventDefault()
+        const formData = new FormData(form)
+        console.log(formData) // 별도의 객체여서 조회 X , 반복하면됨
+        console.log(formData.get('password'))
+        console.log(formData.get('password_confirmation'))
+    })
+</script>
+</body>
+</html>
